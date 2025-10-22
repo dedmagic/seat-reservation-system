@@ -5,7 +5,9 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "postgresql: start": "cd database && docker-compose up -d && cd ..",
+    "postgresql: stop": "cd database && docker-compose down && cd .."
   },
   "repository": {
     "type": "git",

@@ -1,15 +1,16 @@
 const express = require('express');
 
 const app = express();
+const PORT = 4400;
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   const answer = {
     value: 42,
-    description: 'main answer'
+    description: "main answer",
   };
   res.json(answer);
-})
+});
 
-app.listen(4400, () => {
-  console.info('Server started');
-})
+app.listen(PORT, () => {
+  console.info("Server started");
+});
