@@ -1,0 +1,28 @@
+{
+  "name": "seat-reservation-system",
+  "version": "0.1.0",
+  "description": "Тестовое задание 'Система бронирования мест'",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dedmagic/seat-reservation-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dedmagic/seat-reservation-system/issues"
+  },
+  "homepage": "https://github.com/dedmagic/seat-reservation-system#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
