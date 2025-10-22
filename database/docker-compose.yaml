@@ -1,0 +1,18 @@
+# Docker (н-р, Docker Desktop в Windows) должен быть запущен!
+# Запуск: docker-compose up -d
+# Остановка: docker-compose down
+
+name: seat-reservation-system
+
+services:
+  postgres:
+    image: postgres
+    container_name: seat_reservation_system_postgres
+    environment:
+      POSTGRES_DB: seat-reservation-system
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 5432
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
