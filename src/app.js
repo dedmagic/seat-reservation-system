@@ -10,19 +10,23 @@ app.use(express.json());
 app.get("/", (req, res) => {
   const answer = {
     value: 42,
-    description: "main answer",
+    description: "answer to the main question",
   };
   res.json(answer);
 });
 
-app.get("/api/bookings", (req, res) => {
-  const bookings = bookingService.getAll();
-  res.json(bookings);
+app.get("/api/bookings", async (req, res) => {
+  try {
+    const bookings = await bookingService.getAll();
+    res.json(bookings);
+  } catch (error) {
+    res.json(error);
+  }
 });
 
-app.post("/api/bookings/reserve", (req, res) => {
-  console.debug(req.body);
-  const result = bookingService.reserveBackend(req.body);
+app.post("/api/bookings/reserve", async (req, res) => {
+  console.debug("controller: ", req.body);
+  const result = await bookingService.reserve(req.body);
   res.json(result);
 });
 
