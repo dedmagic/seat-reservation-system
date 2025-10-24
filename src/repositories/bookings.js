@@ -31,8 +31,24 @@ const getReservationByEventAndUser = async (userId, eventId) => {
   }
 };
 
+const getReservationCountByEvent = async (eventId) => {
+  const client = await connectClient();
+  try {
+    const query = `
+      SELECT COUNT(*)
+        FROM bookings
+        WHERE event_id = $1`;
+    const result = await client.query(query, [eventId]);
+    return Number(result.rows?.[0].count);
+  } catch (error) {
+    console.error("Ошибка получения резервирования из БД");
+    throw error;
+  } finally {
+    await client.end();
+  }
+};
+
 const saveReservation = async (newReservation) => {
-  console.debug("repo: ", newReservation);
   const client = await connectClient();
   try {
     const query = `
@@ -53,5 +69,6 @@ const saveReservation = async (newReservation) => {
 module.exports = {
   getAllReservations,
   getReservationByEventAndUser,
+  getReservationCountByEvent,
   saveReservation,
 };

@@ -25,7 +25,6 @@ app.get("/api/bookings", async (req, res) => {
 });
 
 app.post("/api/bookings/reserve", async (req, res) => {
-  console.debug("controller: ", req.body);
   const result = await bookingService.reserve(req.body);
   res.json(result);
 });
